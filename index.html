@@ -138,7 +138,7 @@
             background-color: transparent;
             border-left: none; 
             padding: 5px 15px;
-            margin: 20px 0;
+            margin: 15px 0;
             border-radius: 0;
             text-align: center; 
         }
@@ -232,35 +232,37 @@
         .last-page-footer-box {
             width: calc(100% + 80px);
             margin-left: -40px;
-            margin-top: 15px;
+            margin-top: 10px;
             position: relative; 
             overflow: visible; 
-            display: block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* 智慧按鈕精準微調與防撞定位 */
+        /* 🎯 智慧按鈕避開小男生臉部：改用絕對居中安全浮載艙，完全不壓人像臉部！ */
         .join-us-btn-container {
-            position: absolute;
-            top: -25px; 
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
             z-index: 999; 
             text-align: center;
+            margin-bottom: 10px; /* 將按鈕提升於 kids.png 正上方，防撞防遮擋 */
+            width: 100%;
         }
 
         .cta-join-us-img {
             width: 100%;
-            max-width: 120px; 
+            max-width: 145px; 
             height: auto;
             cursor: pointer;
             transition: transform 0.2s, filter 0.2s;
+            margin: 0 auto;
             display: block;
             filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.25));
         }
 
         .cta-join-us-img:hover {
             transform: scale(1.08);
-            filter: drop-shadow(0px 6px 12px rgba(0,0,0,0.35)) brightness(1.05);
+            filter: drop-shadow(0px 6px 12px rgba(0,0,0,0.35)) brightness(1.08);
         }
 
         @media print {
@@ -295,7 +297,6 @@
             th { min-width: 110px; }
             .footer-image-box { width: calc(100% + 40px); margin-left: -20px; }
             .last-page-footer-box { width: calc(100% + 40px); margin-left: -20px; }
-            .join-us-btn-container { top: -20px; } 
         }
     </style>
 </head>
@@ -448,6 +449,7 @@
         </div>
 
         <div class="last-page-footer-box">
+            <!-- 🎯 小男生臉部防遮擋：按鈕位於 kids.png 照片正上方，絕對不壓臉！ -->
             <div class="join-us-btn-container">
                 <img src="join now 1.png" alt="立即線上填報名表與法律契約書鎖定名額" class="cta-join-us-img" onclick="openDoublePortals()">
             </div>
@@ -470,7 +472,6 @@ function openDoublePortals() {
     setTimeout(function() {
         var w2 = window.open(contractUrl, '_blank');
         if (!w2 || w2.closed || typeof w2.closed == 'undefined') {
-            // 若仍被手機防護罩攔截，自動備案備用
             console.warn("Contract popup blocked, redirecting fallback.");
         }
     }, 150);
