@@ -19,7 +19,7 @@
             --soft-red: #e74c3c; /* 🎨 溫暖亮紅色 */
             --dark-red: #c0392b;
             --card-bg: #f8fafc;
-            --border-color: #cbd5e1;
+            --border-color: #1b3d6d; /* 🎯 全面強制為巴比深藍色外框 */
             --line-color: #cbd5e1;
             --text-main: #1e293b;
             --text-sub: #475569;
@@ -157,10 +157,10 @@
             justify-content: space-between;
         }
 
-        /* 📜 動態捲動卡片樣式（已移除頂部提示文字） */
+        /* 📜 動態捲動卡片樣式 */
         .description-scroll-box {
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid #cbd5e1;
             border-left: 4px solid var(--soft-red);
             padding: 16px 20px;
             border-radius: 8px;
@@ -188,7 +188,7 @@
 
         /* 🎯 中英文字體分離與層級對比樣式 */
         p.paragraph-desc {
-            font-size: 13px; /* 中文字級清晰易讀 */
+            font-size: 13px;
             font-weight: 500;
             margin: 0 0 8px 0;
             text-align: justify;
@@ -221,6 +221,13 @@
             text-align: center; 
         }
 
+        .pyp-badge h4 {
+            margin: 0 0 4px 0;
+            color: var(--uci-blue);
+            font-size: 15px;
+            font-weight: 800;
+        }
+
         .pyp-badge p {
             margin: 0;
             font-size: 13.5px;
@@ -235,7 +242,7 @@
             white-space: nowrap;
         }
 
-        /* 🛡️ 核心表格全邊框防線：外框與內部單元格完整顯示 */
+        /* 🛡️ 核心表格全邊框防線：外框與內部單元格完整顯示 (100% 巴比深藍 #1b3d6d !important) */
         .table-container {
             width: 100%;
             margin-top: 8px;
@@ -244,20 +251,20 @@
 
         table.ad-table { 
             width: 100%; 
-            border-collapse: separate; /* 改為 separate 以完整呈現整體外框 */
-            border-spacing: 0;
+            border-collapse: collapse !important; /* 全面統一為實體 collapse 演算法 */
+            margin-bottom: 0;
             font-size: 12.5px;
             table-layout: fixed;
             word-wrap: break-word;
-            border: 1px solid var(--border-color) !important; /* 強制整體外框顯影 */
-            border-radius: 6px;
+            border: 1px solid #1b3d6d !important;
+            border-radius: 0px;
             overflow: hidden;
+            background-color: #ffffff;
         }
 
         /* 明確設定內部格線與邊界 */
         table.ad-table th, table.ad-table td { 
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
+            border: 1px solid #1b3d6d !important;
             padding: 9px 12px; 
             vertical-align: middle; 
             text-align: left; 
@@ -265,17 +272,9 @@
             word-break: break-word;
         }
 
-        /* 消除最右側與最底部的重複邊框 */
-        table.ad-table th:last-child, table.ad-table td:last-child {
-            border-right: none;
-        }
-        table.ad-table tr:last-child td {
-            border-bottom: none;
-        }
-
         table.ad-table th { 
-            background-color: #fdebd0; 
-            color: var(--soft-red); 
+            background-color: #f0f4f8; 
+            color: var(--uci-blue); 
             text-align: center; 
             font-weight: 700;
             font-size: 13px;
@@ -295,13 +294,14 @@
             margin-bottom: 10px; 
             border-radius: 6px; 
             font-size: 13px;
-            border: 1px solid var(--border-color);
+            border: 1px solid #cbd5e1;
             border-left-width: 4px;
+            border-left-color: var(--soft-red);
         }
 
         .info-card {
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid #cbd5e1;
             padding: 12px 16px;
             border-radius: 6px;
             margin-top: 6px;
@@ -320,7 +320,7 @@
             color: var(--text-sub); 
             display: block; 
             margin-top: 2px; 
-            font-size: 11px; /* 英文說明縮小襯托 */
+            font-size: 11px; 
             font-weight: 400; 
             line-height: 1.4;
             text-align: justify;
@@ -346,7 +346,7 @@
 
         .note-textarea-10lines {
             width: 100%;
-            height: 140px; /* 微調筆記區域高度，給下方圖檔留足安全空間 */
+            height: 140px; 
             border: none;
             background: transparent;
             background-image: repeating-linear-gradient(
@@ -422,6 +422,7 @@
 
         /* 🖨️ 列印專用防護罩：只有在「真正列印紙張」時才精準鎖定 A4 尺寸！ */
         @media print {
+            @page { size: A4 portrait; margin: 10mm 15mm; }
             body { background-color: #fff; padding: 0; margin: 0; }
             .ad-container { max-width: 100%; width: 100%; box-shadow: none; border-radius: 0; }
             .page {
@@ -439,12 +440,12 @@
             .page:last-child { page-break-after: avoid; }
             .description-scroll-box { max-height: none !important; overflow-y: visible !important; border: none !important; padding: 0 !important; }
             .header-flex-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            table.ad-table th, table.ad-table td { 
-                border: 1px solid var(--border-color) !important; 
+            table.ad-table, table.ad-table th, table.ad-table td { 
+                border: 1px solid #1b3d6d !important; 
                 -webkit-print-color-adjust: exact; 
                 print-color-adjust: exact; 
             }
-            table.ad-table th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            table.ad-table th { background-color: #f0f4f8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .footer-image-box { width: calc(100% + 36mm) !important; margin-left: -18mm !important; }
             .last-page-footer-box { width: calc(100% + 36mm) !important; margin-left: -18mm !important; }
             .page-footer-img { max-height: 120px !important; }
@@ -489,7 +490,6 @@
 
             <h2 class="section-heading">💡 課程理念 | Course Concept</h2>
             
-            <!-- 📜 動態捲動卡片升級區塊（已刪除提示文字標籤） -->
             <div class="description-scroll-box">
                 <p class="paragraph-desc" style="font-size: 13.5px; color: var(--soft-red); font-weight: 700; margin-bottom: 6px;">
                     【全美語聽不懂？不敢說？巴比老師用滿滿的遊戲，帶孩子在玩樂中無痛解鎖聽、說、讀！】
@@ -497,7 +497,7 @@
                 <p class="paragraph-desc">
                     我們不急著讓剛接觸美語的寶貝拿筆死記硬背，而是透過精心設計的互動與配對遊戲，先讓孩子徹底愛上開口的第一步！從模仿到自信表達，自然而然建立扎實的語感。
                 </p>
-                <p class="paragraph-desc" style="margin-top: 8px; border-top: 1px dashed var(--border-color); padding-top: 8px;">
+                <p class="paragraph-desc" style="margin-top: 8px; border-top: 1px dashed #cbd5e1; padding-top: 8px;">
                     <strong style="font-weight: 800; color: var(--soft-red);">【Too shy to speak in an all-English classroom?】</strong>
                     <span class="light-en-text">Teacher Bobby uses fun games to help kids effortlessly unlock listening, speaking, and reading! No rush to write—our priority is to make children fall in love with their very first steps in English! Through immersive matching, imitating, and repeating activities, we lay a joyful and solid foundation for early English enlightenment.</span>
                 </p>
@@ -609,7 +609,17 @@
                         </tr>
                         <tr>
                             <td style="font-weight: bold;">⏰ 上課時間 | Class Time</td>
-                            <td class="left-align">每週星期一、三、五 下午 1:30 - 3:30 p.m. (每堂 2 小時)<br><span class="note">Every Mon, Wed, Fri from 1:30 PM to 3:30 PM (2 hours per class)</span></td>
+                            <!-- 🎯 升級重點：幾何 100% 精準居中，格式與報名表/契約書一致 -->
+                            <td style="text-align: center; vertical-align: middle;">
+                                <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 2px 0;">
+                                    <div style="font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;">
+                                        <span class="no-orphan">每週一、三、五</span>
+                                    </div>
+                                    <div style="font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;">
+                                        <span class="no-orphan">1:30 PM - 3:30 PM (2小時/堂)</span>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td style="font-weight: bold;">📅 總堂數 | Total Lessons</td>
@@ -660,7 +670,7 @@
 
 </div>
 
-<!-- 📡 雙軌異步傳送連動晶片，徹底移除筆誤斜線，防範彈窗阻斷 -->
+<!-- 📡 雙軌異步傳送連動晶片，防範彈窗阻斷 -->
 <script>
 function openDoublePortals() {
     var formUrl = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Lets-Go-lg1.html";
