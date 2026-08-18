@@ -16,7 +16,7 @@
             --uci-blue: #1b3d6d;
             --uci-gold: #fecc07;
             --pyp-teal: #0077b6;
-            --soft-red: #e74c3c; /* 🎨 溫暖亮紅色 */
+            --soft-red: #e74c3c;
             --dark-red: #c0392b;
             --card-bg: #f8fafc;
             --border-color: #1b3d6d; /* 🎯 全面強制為巴比深藍色外框 */
@@ -54,11 +54,11 @@
             position: relative;
             background: #fff;
             padding: 30px 35px 20px 35px;
-            overflow: visible; /* 螢幕瀏覽時允許自然延伸 */
+            overflow: visible;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 980px; /* 改為彈性最小高度 */
+            min-height: 980px;
             border-bottom: 2px dashed #e2e8f0;
         }
 
@@ -87,7 +87,6 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        /* 🎯 標題文字區塊：文字置中 */
         .title-group {
             flex: 1;
             text-align: center;
@@ -160,8 +159,8 @@
         /* 📜 動態捲動卡片樣式 */
         .description-scroll-box {
             background-color: var(--card-bg);
-            border: 1px solid #cbd5e1;
-            border-left: 4px solid var(--soft-red);
+            border: 1px solid #1b3d6d !important;
+            border-left: 4px solid var(--soft-red) !important;
             padding: 16px 20px;
             border-radius: 8px;
             margin-bottom: 10px;
@@ -171,22 +170,11 @@
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
 
-        .description-scroll-box::-webkit-scrollbar {
-            width: 5px;
-        }
-        .description-scroll-box::-webkit-scrollbar-track {
-            background: #e2e8f0;
-            border-radius: 4px;
-        }
-        .description-scroll-box::-webkit-scrollbar-thumb {
-            background: var(--soft-red);
-            border-radius: 4px;
-        }
-        .description-scroll-box::-webkit-scrollbar-thumb:hover {
-            background: var(--dark-red);
-        }
+        .description-scroll-box::-webkit-scrollbar { width: 5px; }
+        .description-scroll-box::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 4px; }
+        .description-scroll-box::-webkit-scrollbar-thumb { background: var(--soft-red); border-radius: 4px; }
+        .description-scroll-box::-webkit-scrollbar-thumb:hover { background: var(--dark-red); }
 
-        /* 🎯 中英文字體分離與層級對比樣式 */
         p.paragraph-desc {
             font-size: 13px;
             font-weight: 500;
@@ -197,11 +185,8 @@
             word-break: break-word;
         }
 
-        p.paragraph-desc:last-child {
-            margin-bottom: 0;
-        }
+        p.paragraph-desc:last-child { margin-bottom: 0; }
 
-        /* 英文字級精緻縮小，優雅襯托 */
         .light-en-text {
             font-size: 11px;
             font-weight: 400; 
@@ -236,13 +221,12 @@
             font-weight: 700;
         }
 
-        /* 🎯 避孤晶片：確保標語最後關鍵詞不單獨換行成單字 */
         .no-orphan {
             display: inline-block;
             white-space: nowrap;
         }
 
-        /* 🛡️ 核心表格全邊框防線：外框與內部單元格完整顯示 (100% 巴比深藍 #1b3d6d !important) */
+        /* 🔒 Aegis 核心 UI 規範 1：所有表格與內格線 100% 飽滿巴比深藍色實體化 */
         .table-container {
             width: 100%;
             margin-top: 8px;
@@ -251,7 +235,7 @@
 
         table.ad-table { 
             width: 100%; 
-            border-collapse: collapse !important; /* 全面統一為實體 collapse 演算法 */
+            border-collapse: collapse !important;
             margin-bottom: 0;
             font-size: 12.5px;
             table-layout: fixed;
@@ -262,7 +246,6 @@
             background-color: #ffffff;
         }
 
-        /* 明確設定內部格線與邊界 */
         table.ad-table th, table.ad-table td { 
             border: 1px solid #1b3d6d !important;
             padding: 9px 12px; 
@@ -289,19 +272,17 @@
 
         .grammar-section { 
             background-color: var(--card-bg); 
-            border-left: 4px solid var(--soft-red); 
             padding: 12px 16px; 
             margin-bottom: 10px; 
             border-radius: 6px; 
             font-size: 13px;
-            border: 1px solid #cbd5e1;
-            border-left-width: 4px;
-            border-left-color: var(--soft-red);
+            border: 1px solid #1b3d6d !important;
+            border-left: 4px solid var(--soft-red) !important;
         }
 
         .info-card {
             background-color: var(--card-bg);
-            border: 1px solid #cbd5e1;
+            border: 1px solid #1b3d6d !important;
             padding: 12px 16px;
             border-radius: 6px;
             margin-top: 6px;
@@ -364,7 +345,6 @@
             font-family: inherit;
         }
 
-        /* 🎯 頁尾圖片容器與高度彈性鎖定 */
         .footer-image-box {
             width: calc(100% + 70px); 
             margin-left: -35px; 
@@ -403,7 +383,6 @@
             margin-bottom: 4px;
         }
 
-        /* 🎯 按鈕圖檔尺寸最佳化 */
         .cta-join-us-img {
             width: 100%;
             max-width: 145px;
@@ -420,14 +399,13 @@
             filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
         }
 
-        /* 🖨️ 列印專用防護罩：只有在「真正列印紙張」時才精準鎖定 A4 尺寸！ */
         @media print {
             @page { size: A4 portrait; margin: 10mm 15mm; }
             body { background-color: #fff; padding: 0; margin: 0; }
             .ad-container { max-width: 100%; width: 100%; box-shadow: none; border-radius: 0; }
             .page {
                 width: 210mm;      
-                height: 296mm;     
+                height: 296mm;      
                 min-height: 296mm;
                 max-height: 296mm;
                 page-break-after: always; 
@@ -435,7 +413,7 @@
                 padding: 15mm 18mm 0 18mm !important; 
                 margin: 0;
                 border-bottom: none;
-                overflow: hidden !important; /* 列印時鎖定邊界 */
+                overflow: hidden !important;
             }
             .page:last-child { page-break-after: avoid; }
             .description-scroll-box { max-height: none !important; overflow-y: visible !important; border: none !important; padding: 0 !important; }
@@ -450,9 +428,7 @@
             .last-page-footer-box { width: calc(100% + 36mm) !important; margin-left: -18mm !important; }
             .page-footer-img { max-height: 120px !important; }
             .join-us-btn-container { display: none !important; }
-            table.ad-table, .info-card, .grammar-section, .footer-image-box, .last-page-footer-box {
-                page-break-inside: avoid;
-            }
+            table.ad-table, .info-card, .grammar-section, .footer-image-box, .last-page-footer-box { page-break-inside: avoid; }
         }
 
         @media (max-width: 768px) {
@@ -463,9 +439,7 @@
             .title-group { text-align: center; width: 100%; }
             .logo-img { max-width: 110px; margin-bottom: 8px; }
             .description-scroll-box { max-height: 260px; }
-            table.ad-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            table.ad-table td { min-width: 160px; }
-            table.ad-table th { min-width: 95px; }
+            table.ad-table { display: table; width: 100%; }
             .footer-image-box { width: calc(100% + 30px); margin-left: -15px; }
             .last-page-footer-box { width: calc(100% + 30px); margin-left: -15px; }
             .page-footer-img { max-height: 110px; }
@@ -485,7 +459,7 @@
                     <h3>美語不害怕！巴比老師的遊戲大膽說1級班</h3>
                     <h3 class="eng-sub">Play & Speak English with Confidence! Level 1 Foundational Class</h3>
                 </div>
-                <img src="BOBBY ENGLISH SCHOOL_去背檔.png" alt="巴比美語補習班專屬去背標章" class="logo-img">
+                <img src="BOBBY ENGLISH SCHOOL_去背檔.png" alt="私立巴比美語短期補習班標章" class="logo-img">
             </div>
 
             <h2 class="section-heading">💡 課程理念 | Course Concept</h2>
@@ -605,11 +579,10 @@
                     <tbody>
                         <tr>
                             <td style="font-weight: bold;">📅 課程日期 | Course Dates</td>
-                            <td class="left-align">2026年8月31日正式開課 至 01月08日（每週一、三、五）<br><span class="note">Starts from August 31, 2026 to January 8, 2027 (Every Mon, Wed, Fri)</span></td>
+                            <td class="left-align">2026年8月31日(一)正式開課 至 2027年1月8日(五) (每週一、三、五)<br><span class="note">Starts from August 31, 2026 to January 8, 2027 (Every Mon, Wed, Fri)</span></td>
                         </tr>
                         <tr>
                             <td style="font-weight: bold;">⏰ 上課時間 | Class Time</td>
-                            <!-- 🎯 升級重點：幾何 100% 精準居中，格式與報名表/契約書一致 -->
                             <td style="text-align: center; vertical-align: middle;">
                                 <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 2px 0;">
                                     <div style="font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;">
@@ -622,7 +595,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="font-weight: bold;">📅 總堂數 | Total Lessons</td>
+                            <td style="font-weight: bold;">🔢 總堂數 | Total Lessons</td>
                             <td class="left-align">全期共 51 堂課<br><span class="note">51 lessons in total for the entire semester</span></td>
                         </tr>
                         <tr>
@@ -630,15 +603,16 @@
                             <td class="left-align">國小一至二年級（美語零基礎或初學者）<br><span class="note">Elementary School Grades 1-2 (Beginners with zero English background)</span></td>
                         </tr>
                         <tr>
-                            <td style="font-weight: bold;">📅 招生人數 | Class Size</td>
-                            <td class="left-align">小班教學，招生人數10人<br><span class="note">Small group class, 10 students max</span></td>
+                            <td style="font-weight: bold;">👑 招生人數 | Class Size</td>
+                            <td class="left-align">精緻小班教學，每班招生人數上限 10 人<br><span class="note">Small group class, 10 students max</span></td>
                         </tr>
                         <tr>
                             <td style="font-weight: bold;">💰 課程學費 | Tuition Fee</td>
                             <td class="left-align">
-                                <strong style="color: var(--soft-red); font-size: 14.5px;">NT$35,948元</strong><br>
-                                <span class="note">備註：全期基本學費 $31,620元 + 專屬教材費 $1,268元 + 當期學雜費 $3,060元</span>
-                                <span class="note" style="margin-top:2px;">Note: Base Tuition $31,620 + Textbooks $1,268 + School Fees $3,060</span>
+                                <!-- 🎯 Aegis 核心協定：去身分標籤，精準公式咬合：Math.round((31620 + 1268 + 3060) * 1) = NT$35,948 -->
+                                <span class="note" style="font-size: 12px; color: var(--text-main); line-height: 1.5;">
+                                    本學期費用包含：基本學費 $31,620元 ($620×51堂) + 專屬教材費 $1,268元 + 當期學雜費 $3,060元 ($60×51堂) = <strong style="color: var(--soft-red); font-size: 13.5px;">NT$35,948元</strong>
+                                </span>
                             </td>
                         </tr>
                     </tbody>
@@ -658,9 +632,8 @@
         </div>
 
         <div class="last-page-footer-box">
-            <!-- 🎯 智慧按鈕避開小男生臉部：位在 kids.png 正上方安全區域 -->
             <div class="join-us-btn-container">
-                <img src="join now 1.png" alt="立即線上填報名表與法律契約書鎖定名額" class="cta-join-us-img" onclick="openDoublePortals()">
+                <img src="join now 1.png" alt="立即線上填報名表與法律契約書鎖定名額" class="cta-join-us-img" onclick="openDoublePortals(event)">
             </div>
             <div class="footer-image-box" style="margin-top: 0;">
                 <img src="kids.png" alt="巴比美語學員快樂探究合照" class="page-footer-img">
@@ -672,18 +645,19 @@
 
 <!-- 📡 雙軌異步傳送連動晶片，防範彈窗阻斷 -->
 <script>
-function openDoublePortals() {
+function openDoublePortals(event) {
+    if (event) event.preventDefault();
+    
     var formUrl = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Lets-Go-lg1.html";
     var contractUrl = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Contract-lg1.html";
     
-    // 開啟第一個主要表單頁面
-    var w1 = window.open(formUrl, '_blank');
+    var w1 = window.open(formUrl, '_blank', 'noopener');
     
-    // 延遲 150 毫秒觸發第二個視窗，避免被 iOS Safari 判定為連發廣告
     setTimeout(function() {
-        var w2 = window.open(contractUrl, '_blank');
-        if (!w2 || w2.closed || typeof w2.closed == 'undefined') {
+        var w2 = window.open(contractUrl, '_blank', 'noopener');
+        if (!w2 || w2.closed || typeof w2.closed === 'undefined') {
             console.warn("Contract popup blocked by mobile safety shield.");
+            alert("✨ 巴比美語溫馨提示：系統已為您開啟 Let's Go 1 報名表！若未自動開啟定型化契約書，請點擊報名頁面內的「契約審閱連結」即可查閱喔！");
         }
     }, 150);
 }
